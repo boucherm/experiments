@@ -2,13 +2,13 @@ clear all;
 printf('=======\n')
 
 R_obj = [ 0 -1;
-          1  0 ]
+          1  0 ];
 t_obj = [ 1;
-          0 ]
+          0 ];
 
 x = [ 1;
-      0 ]
-y = R_obj*x + t_obj
+      0 ];
+y = R_obj*x + t_obj;
 
 G = [ 0 -1;
       1  0 ];
@@ -16,9 +16,8 @@ G = [ 0 -1;
 R = eye(2);
 t = [ 0; 0 ];
 
-n_iter = 100
-step   = 0.1;
-
+n_iter = 15
+step   = 1;
 for iter=1:n_iter
 
   e = R*x + t - y;
@@ -42,6 +41,6 @@ printf( '--- \n' )
 e = R*x + t - y;
 norms(n_iter+1) = norm(e);
 
-R
-t
+R'*R_obj
+t-t_obj
 plot( norms )
