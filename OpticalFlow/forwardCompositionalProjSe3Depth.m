@@ -137,7 +137,7 @@ function cTr = forwardCompositionalSe3( rI, cI, rD, K, cTr, n_iter, step, draw )
     %tic;
     residual = ( rIv - Iwv );
     residual = residual .* Mv;
-    e_cur    = residual' * residual;
+    e_cur    = residual' * residual / sum( Mv );
     %'residuals evaluation'
     %toc
 
